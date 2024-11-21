@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 // =============================================================================
 // Layout Component
 // =============================================================================
-export const Layout = ({ children }: Props) => {
+export default function Layout ({ children }: Props) {
 return (
     <html lang='en'>
       <body>{children}</body>
