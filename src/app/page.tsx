@@ -1,101 +1,100 @@
-import Image from "next/image";
+// =============================================================================
+// File Name: Home Page
+// File Description:
+// This file contains the Home Page.
+// =============================================================================
+// =============================================================================
+// Page Imports
+// =============================================================================
+import { Metadata } from 'next'
 
-export default function Home() {
+// =============================================================================
+// Page Props
+// =============================================================================
+
+// =============================================================================
+// Page Metadata
+// =============================================================================
+export const metadata: Metadata = {
+  title: 'Home'
+}
+
+// =============================================================================
+// Page Component
+// =============================================================================
+export const HomePage = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main>
+      Body Mass Index Calculator
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      Better understand your weight in relation to your height using our 
+      body mass index (BM) calculator. While BMI is not the sole determinant 
+      of a healthy weight, it offers a valuable starting point to evaluate 
+      your overall health and well-being.
+
+      Enter your details below
+
+      Metric
+      Imperial
+
+      Height
+      Weight
+
+      Your BMI is...
+
+      {/* add score  */}
+
+      Your BMI suggests you're {/*  add classification */}. 
+      Your ideal weight is between {/*  add range */}.
+
+      What your BMI result means
+
+      A BMI range of 18.5 to 24.9 is considered a 'healthy weight.' Maintaining a 
+      healthy weight may lower your chances of experiencing health issues later on, 
+      such as obesity and type 2 diabetes. Aim for a nutritious diet with reduced 
+      fat and sugar content, incorporating ample fruits and vegetables. Additionally, 
+      strive for regular physical activity, ideally about 30 minutes daily for 
+      five days a week.
+
+      Healthy eating
+      Healthy eating promotes weight control, disease prevention, better digestion, 
+      immunity, mental clarity, and mood.
+
+      Regular exercise
+      Exercise improves fitness, aids weight control, elevates mood, and reduces disease 
+      risk, fostering wellness and longevity.
+
+      Adequate sleep
+      Sleep enhances mental clarity, emotional stability, and physical wellness, promoting 
+      overall restoration and rejuvenation.
+
+      Limitations of BMI
+
+      Although BMI is often a practical indicator of healthy weight, it is not suited for 
+      every person. Specific groups should carefully consider their BMI outcomes, and in 
+      certain cases, the measurement may not be beneficial to use.
+
+      Gender
+      The development and body fat composition of girls and boys vary with age. Consequently, 
+      a child's age and gender are considered when evaluating their BMI.
+
+      Age
+      In aging individuals, increased body fat and muscle loss may cause BMI to underestimate 
+      body fat content.
+
+      Muscle
+      BMI may misclassify muscular individuals as overweight or obese, as it doesn't 
+      differentiate muscle from fat.
+
+      Pregnancy
+      Expectant mothers experience weight gain due to their growing baby. Maintaining a 
+      healthy pre-pregnancy BMI is advisable to minimise health risks for both mother 
+      and child.
+
+      Race
+      Certain health concerns may affect individuals of some Black and Asian origins at 
+      lower BMIs than others. To learn more, it is advised to discuss this with your 
+      GP or practice nurse.
+    </main>
   );
 }
