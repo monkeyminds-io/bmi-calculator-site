@@ -7,10 +7,11 @@
 // =============================================================================
 // Components Imports
 // =============================================================================
-import { ChangeEvent, useActionState, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Heading } from "../atoms/heading";
 import { RadioBTN } from "../atoms/radio-btn";
 import { UnitInputBlock } from "../unit-input-block";
+import { BMIData } from "@/libs/types/bmi-data";
 
 // =============================================================================
 // Components Props
@@ -21,20 +22,40 @@ import { UnitInputBlock } from "../unit-input-block";
 // =============================================================================
 export const BMIForm = () => {
   const [unit, setUnit] = useState("metric");
-  const [bmi, setBmi] = useState("23.4");
+  const [bmi, setBmi] = useState<number>(0);
   const [classification, setClassification] = useState("a healthy weight");
   const [range, setRange] = useState("63.3kgs - 85.2hgs");
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState<BMIData>({
+    weight: null,
+    height: null,
+  })
 
   const handleUnitChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target?.value;
     setUnit(value);
   };
 
+  
+  const calculateBmi = () => {
+    setLoading(true)
+    let result = 0
+    setTimeout(() => {
+      if(typeof data.weight === "number" && typeof data.height === "number") result = data.weight / (data.height * 100)
+      setBmi(result)
+      setLoading(false)
+    }, 1500);
+    console.log(result)
+    console.log(data)
+  }
+
+  useEffect(() => {
+    calculateBmi()
+  }, [data])
+
   // TODO Add Form Action
   return (
     <form
-      action={""}
       id="bmi-form"
       className="flex flex-col gap-8 p-8 bg-white rounded-2xl shadow-form"
     >
@@ -56,7 +77,7 @@ export const BMIForm = () => {
           handleChange={handleUnitChange}
         />
       </div>
-      <UnitInputBlock unit={unit} />
+      <UnitInputBlock unit={unit} data={data} setData={setData} />
       <div className="flex flex-col gap-6 p-8 rounded-2xl bg-brand text-white text-body-s">
         <p>Your BMI is...</p>
         {loading ? (

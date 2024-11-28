@@ -1,38 +1,36 @@
 // =============================================================================
-// File Name: Container Component
+// File Name: Limited Card
 // File Description:
-// This file contains the code of the Container Component
+// Thid file contains the limited card component
 // =============================================================================
 // =============================================================================
 // Components Imports
 // =============================================================================
 import { ReactNode } from "react";
-import clsx from "clsx";
+import Image from "next/image";
+import { Heading } from "../atoms/heading";
 
 // =============================================================================
 // Components Props
 // =============================================================================
 type Props = {
-  children: ReactNode;
-  type?: string;
+  icon: string;
+  iconAlt: string;
+  title: string;
+  content: string;
 };
 
 // =============================================================================
 // React Components
 // =============================================================================
-export const Container = ({ children, type }: Props) => {
+export const LimitedCard = ({ icon, iconAlt, title, content }: Props) => {
   return (
-    <div
-      className={clsx(
-        "px-6",
-        type === "result-content" ? "flex flex-col items-center gap-12" : "",
-        type === "result-cards"
-          ? "grid grid-rows-3 grid-flow-col gap-10 py-14 bg-result"
-          : "",
-        type === "limited" ? "flex flex-col gap-14" : "",
-      )}
-    >
-      {children}
+    <div className="flex flex-col gap-8 p-6 rounded-2xl bg-white shadow-card">
+      <div className="flex flex-row items-center gap-4">
+        <Image src={icon} alt={iconAlt} className="w-8 h-8" />
+        <Heading level={3} text={title} />
+      </div>
+      <p className="text-body-m text-gray">{content}</p>
     </div>
   );
 };

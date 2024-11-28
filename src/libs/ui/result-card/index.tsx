@@ -7,6 +7,7 @@
 // Components Imports
 // =============================================================================
 import Image from "next/image";
+import { Heading } from "../atoms/heading";
 
 // =============================================================================
 // Components Props
@@ -23,11 +24,11 @@ type Props = {
 // =============================================================================
 export const ResultCard = ({ icon, iconAlt, title, text }: Props) => {
   return (
-    <div>
-      <Image src={icon} alt={iconAlt} />
-      <div>
-        <h3>{title}</h3>
-        <p>{text}</p>
+    <div className="flex flex-col gap-8">
+      <Image src={icon} alt={iconAlt} className="w-16 h-16" />
+      <div className="flex flex-col gap-6">
+        <Heading level={3} text={title} />
+        <p className="text-body-m text-gray">{text}</p>
       </div>
     </div>
   );

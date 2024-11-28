@@ -29,6 +29,7 @@ import logo from "@/../public/logo.svg";
 import patternLeft from "@/../public/pattern-curved-line-left.svg";
 import patternRight from "@/../public/pattern-curved-line-right.svg";
 import { ResultCard } from "@/libs/ui/result-card";
+import { LimitedCard } from "@/libs/ui/limited-card";
 
 // =============================================================================
 // Page Props
@@ -112,70 +113,22 @@ export default function HomePage() {
 
       <Section>
         <Image src={patternRight} alt="decoration" className="hidden" />
-        <Container>
-          <div>
+        <Container type={"limited"}>
+          <div className="flex flex-col gap-8 text-center">
             <Heading level={2} text={"Limitations of BMI"} />
-            <p>
+            <p className="text-body-m text-gray">
               Although BMI is often a practical indicator of healthy weight, it
               is not suited for every person. Specific groups should carefully
               consider their BMI outcomes, and in certain cases, the measurement
               may not be beneficial to use.
             </p>
           </div>
-          <div>
-            <div>
-              <div>
-                <Image src={iconGender} alt="Icon gender" />
-                <h3>Gender</h3>
-              </div>
-              <p>
-                The development and body fat composition of girls and boys vary
-                with age. Consequently, a child&apos;s age and gender are
-                considered when evaluating their BMI.
-              </p>
-            </div>
-            <div>
-              <div>
-                <Image src={iconAge} alt="Icon age" />
-                <h3>Age</h3>
-              </div>
-              <p>
-                In aging individuals, increased body fat and muscle loss may
-                cause BMI to underestimate body fat content.
-              </p>
-            </div>
-            <div>
-              <div>
-                <Image src={iconMuscle} alt="Icon muscle" />
-                <h3>Muscle</h3>
-              </div>
-              <p>
-                BMI may misclassify muscular individuals as overweight or obese,
-                as it doesn&apos;t differentiate muscle from fat.
-              </p>
-            </div>
-            <div>
-              <div>
-                <Image src={iconPregnancy} alt="Icon pregnancy" />
-                <h3>Pregnancy</h3>
-              </div>
-              <p>
-                Expectant mothers experience weight gain due to their growing
-                baby. Maintaining a healthy pre-pregnancy BMI is advisable to
-                minimise health risks for both mother and child.
-              </p>
-            </div>
-            <div>
-              <div>
-                <Image src={iconRace} alt="Icon race" />
-                <h3>Race</h3>
-              </div>
-              <p>
-                Certain health concerns may affect individuals of some Black and
-                Asian origins at lower BMIs than others. To learn more, it is
-                advised to discuss this with your GP or practice nurse.
-              </p>
-            </div>
+          <div className="grid grid-flow-row grid-cols-1 gap-4">
+            <LimitedCard icon={iconGender} iconAlt={"Icon gender"} title={"Gender"} content={"The development and body fat composition of girls and boys vary with age. Consequently, a child&apos;s age and gender are considered when evaluating their BMI."} />
+            <LimitedCard icon={iconAge} iconAlt={"Icon age"} title={"Age"} content={"In aging individuals, increased body fat and muscle loss may cause BMI to underestimate body fat content."} />
+            <LimitedCard icon={iconMuscle} iconAlt={"Icon muscle"} title={"Muscle"} content={"BMI may misclassify muscular individuals as overweight or obese, as it doesn&apos;t differentiate muscle from fat."} />
+            <LimitedCard icon={iconPregnancy} iconAlt={"Icon pregnancy"} title={"Pregnancy"} content={"Expectant mothers experience weight gain due to their growing baby. Maintaining a healthy pre-pregnancy BMI is advisable to minimise health risks for both mother and child."} />
+            <LimitedCard icon={iconRace} iconAlt={"Icon race"} title={"Race"} content={"Certain health concerns may affect individuals of some Black and Asian origins at lower BMIs than others. To learn more, it is advised to discuss this with your GP or practice nurse."} />
           </div>
         </Container>
       </Section>

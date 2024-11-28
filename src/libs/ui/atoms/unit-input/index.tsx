@@ -6,9 +6,6 @@
 // =============================================================================
 // =============================================================================
 // Components Props
-
-import { handleCMChange } from "@/libs/ui/unit-input-block/utiles";
-
 // =============================================================================
 type Props = {
   id: string;
@@ -16,6 +13,7 @@ type Props = {
   placeholder: string;
   label?: string;
   unit: string;
+  handleChange?: Function;
 };
 
 // =============================================================================
@@ -27,6 +25,7 @@ export const UnitInput = ({
   placeholder,
   label = "",
   unit,
+  handleChange = () => {}
 }: Props) => {
   return (
     <div className="flex flex-col gap-2">
@@ -39,6 +38,7 @@ export const UnitInput = ({
           id={id}
           name={name}
           placeholder={placeholder}
+          onChange={(e) => handleChange(e)}
           className="w-full text-heading-m text-text placeholder:text-gray"
         />
         <span className="text-heading-m text-brand">{unit}</span>

@@ -81,6 +81,7 @@ export default {
       },
       boxShadow: {
         form: "16px 32px 56px 0px rgba(143, 174, 207, 0.25);",
+        card: "16px 32px 56px 0px rgba(143, 174, 207, 0.25);",
       },
     },
   },

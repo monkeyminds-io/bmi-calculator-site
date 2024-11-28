@@ -7,19 +7,32 @@
 // =============================================================================
 // Components Imports
 // =============================================================================
+import { ChangeEvent, useState } from "react";
 import { UnitInput } from "../atoms/unit-input";
+import { BMIData, ImperialHeight } from "@/libs/types/bmi-data";
 
 // =============================================================================
 // Components Props
 // =============================================================================
 type Props = {
   unit: string;
+  data: BMIData | undefined;
+  setData: Function;
 };
 
 // =============================================================================
 // React Components
 // =============================================================================
-export const UnitInputBlock = ({ unit }: Props) => {
+export const UnitInputBlock = ({ unit, data, setData }: Props) => {
+
+  const handleMetricChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target?.value
+    const newData = data!
+    if(event.target?.name === 'height') newData.height = parseFloat(value)
+    if(event.target?.name === 'weight') newData.weight = parseFloat(value)
+    setData(newData)
+  }
+
   if (unit === "metric")
     return (
       <div className="flex flex-col gap-4">
@@ -29,6 +42,7 @@ export const UnitInputBlock = ({ unit }: Props) => {
           placeholder={"000"}
           label={"Height"}
           unit={"cm"}
+          handleChange={handleMetricChange}
         />
         <UnitInput
           id={"weight"}
@@ -36,6 +50,7 @@ export const UnitInputBlock = ({ unit }: Props) => {
           placeholder={"00"}
           label={"Weight"}
           unit={"kg"}
+          handleChange={handleMetricChange}
         />
       </div>
     );
