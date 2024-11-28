@@ -22,9 +22,9 @@ import { BMIData } from "@/libs/types/bmi-data";
 // =============================================================================
 export const BMIForm = () => {
   const [unit, setUnit] = useState("metric");
-  const [bmi, setBmi] = useState<number>(0);
+  const [bmi, setBmi] = useState<number>();
   const [classification, setClassification] = useState("a healthy weight");
-  const [range, setRange] = useState("63.3kgs - 85.2hgs");
+  const [range, setRange] = useState("63.3kgs - 85.2kgs");
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<BMIData>({
     weight: null,
