@@ -3,17 +3,18 @@
 // File Description:
 // This file contains the definitions of the BMI Data Types
 // =============================================================================
-export type BMIData = {
-    weight: number | ImperialWeight | null;
-    height: number | ImperialHeight | null;
-}
+export type MetricData = {
+  weight: number | null;
+  height: number | null;
+};
 
-export type ImperialWeight = {
-    st: number;
-    lbr: number;
-}
-
-export type ImperialHeight = {
-    ft: number;
-    in: number;
-}
+export type ImperialData = {
+  weight: {
+    st: number | null;
+    lbs: number | null;
+  };
+  height: {
+    ft: number | null;
+    in: number | null;
+  };
+};

@@ -124,11 +124,46 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-flow-row grid-cols-1 gap-4">
-            <LimitedCard icon={iconGender} iconAlt={"Icon gender"} title={"Gender"} content={"The development and body fat composition of girls and boys vary with age. Consequently, a child&apos;s age and gender are considered when evaluating their BMI."} />
-            <LimitedCard icon={iconAge} iconAlt={"Icon age"} title={"Age"} content={"In aging individuals, increased body fat and muscle loss may cause BMI to underestimate body fat content."} />
-            <LimitedCard icon={iconMuscle} iconAlt={"Icon muscle"} title={"Muscle"} content={"BMI may misclassify muscular individuals as overweight or obese, as it doesn&apos;t differentiate muscle from fat."} />
-            <LimitedCard icon={iconPregnancy} iconAlt={"Icon pregnancy"} title={"Pregnancy"} content={"Expectant mothers experience weight gain due to their growing baby. Maintaining a healthy pre-pregnancy BMI is advisable to minimise health risks for both mother and child."} />
-            <LimitedCard icon={iconRace} iconAlt={"Icon race"} title={"Race"} content={"Certain health concerns may affect individuals of some Black and Asian origins at lower BMIs than others. To learn more, it is advised to discuss this with your GP or practice nurse."} />
+            <LimitedCard
+              icon={iconGender}
+              iconAlt={"Icon gender"}
+              title={"Gender"}
+              content={
+                "The development and body fat composition of girls and boys vary with age. Consequently, a child&apos;s age and gender are considered when evaluating their BMI."
+              }
+            />
+            <LimitedCard
+              icon={iconAge}
+              iconAlt={"Icon age"}
+              title={"Age"}
+              content={
+                "In aging individuals, increased body fat and muscle loss may cause BMI to underestimate body fat content."
+              }
+            />
+            <LimitedCard
+              icon={iconMuscle}
+              iconAlt={"Icon muscle"}
+              title={"Muscle"}
+              content={
+                "BMI may misclassify muscular individuals as overweight or obese, as it doesn&apos;t differentiate muscle from fat."
+              }
+            />
+            <LimitedCard
+              icon={iconPregnancy}
+              iconAlt={"Icon pregnancy"}
+              title={"Pregnancy"}
+              content={
+                "Expectant mothers experience weight gain due to their growing baby. Maintaining a healthy pre-pregnancy BMI is advisable to minimise health risks for both mother and child."
+              }
+            />
+            <LimitedCard
+              icon={iconRace}
+              iconAlt={"Icon race"}
+              title={"Race"}
+              content={
+                "Certain health concerns may affect individuals of some Black and Asian origins at lower BMIs than others. To learn more, it is advised to discuss this with your GP or practice nurse."
+              }
+            />
           </div>
         </Container>
       </Section>

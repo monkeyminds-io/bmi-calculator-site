@@ -11,7 +11,6 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { Heading } from "../atoms/heading";
 import { RadioBTN } from "../atoms/radio-btn";
 import { UnitInputBlock } from "../unit-input-block";
-import { BMIData } from "@/libs/types/bmi-data";
 
 // =============================================================================
 // Components Props
@@ -21,37 +20,17 @@ import { BMIData } from "@/libs/types/bmi-data";
 // React Components
 // =============================================================================
 export const BMIForm = () => {
-  const [unit, setUnit] = useState("metric");
+  const [unit, setUnit] = useState<string>("metric");
   const [bmi, setBmi] = useState<number>();
-  const [classification, setClassification] = useState("a healthy weight");
-  const [range, setRange] = useState("63.3kgs - 85.2kgs");
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState<BMIData>({
-    weight: null,
-    height: null,
-  })
+  const [classification, setClassification] =
+    useState<string>("a healthy weight");
+  const [range, setRange] = useState<string>("63.3kgs - 85.2kgs");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleUnitChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target?.value;
     setUnit(value);
   };
-
-  
-  const calculateBmi = () => {
-    setLoading(true)
-    let result = 0
-    setTimeout(() => {
-      if(typeof data.weight === "number" && typeof data.height === "number") result = data.weight / (data.height * 100)
-      setBmi(result)
-      setLoading(false)
-    }, 1500);
-    console.log(result)
-    console.log(data)
-  }
-
-  useEffect(() => {
-    calculateBmi()
-  }, [data])
 
   // TODO Add Form Action
   return (
@@ -77,7 +56,7 @@ export const BMIForm = () => {
           handleChange={handleUnitChange}
         />
       </div>
-      <UnitInputBlock unit={unit} data={data} setData={setData} />
+      <UnitInputBlock unit={unit} setBmi={setBmi} setLoading={setLoading} />
       <div className="flex flex-col gap-6 p-8 rounded-2xl bg-brand text-white text-body-s">
         <p>Your BMI is...</p>
         {loading ? (

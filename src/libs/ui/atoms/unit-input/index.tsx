@@ -25,7 +25,7 @@ export const UnitInput = ({
   placeholder,
   label = "",
   unit,
-  handleChange = () => {}
+  handleChange = () => {},
 }: Props) => {
   return (
     <div className="flex flex-col gap-2">
